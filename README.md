@@ -3,7 +3,7 @@ This is a Python-based web scraper that retrieves headlines from news websites a
 
 ## Features
 Scrapes multiple pages from a given URL.
-Retrieves headlines from <h1> and <h2> tags (can be customized based on website structure).
+Retrieves headlines from h1 and h2 tags (can be customized based on website structure).
 Saves scraped headlines to a CSV file.
 User-friendly graphical interface built with Tkinter.
 Supports pagination for scraping multiple pages.
