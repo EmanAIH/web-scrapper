@@ -55,5 +55,26 @@ def start_scraping():
     write_to_csv(headlines)
 
 
+# Designing the GUI
+
 root = tk.Tk()
 root.title("Web scrapper for Headline")
+
+# Adding a label and input field for url
+
+url_label = tk.Label(root, text="Enter Website URL (e.g., https://website.cnn.com)")
+url_label.pack()
+url_entry = tk.Entry(root, width=50)
+url_entry.pack()
+
+# Adding a label and input field for number of pages
+pages_label = tk.Label(root, text= "number of pages to scrape is?")
+pages_label.pack()
+pages_entry = tk.Entry(root, width=50)
+pages_entry.pack()
+
+# Adding a button to start scraping
+scrape_button = tk.Button(root, text="Start Scraping", command=start_scraping)
+scrape_button.pack()
+
+root.mainloop() # Start the GUI event loop
