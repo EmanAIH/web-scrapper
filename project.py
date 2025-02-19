@@ -17,7 +17,7 @@ def scrapeheadline(url, pages=5):
 
         if response.status_code ==200:
             soup = BeautifulSoup(response.content, 'html.parser')
-            page_headlines = soup.find_all("h3", class_="card-title")
+            page_headlines = soup.find_all(['h1', 'h2'])
 
             for headline in page_headlines:
                 headline_text = headline.get_text(strip=True)
@@ -53,6 +53,10 @@ def start_scraping():
     
     headlines = scrapeheadline(url, pages)
     write_to_csv(headlines)
+    headlines_list.delete(0, tk.END)
+    for headline in headlines:
+        headlines_list.insert(tk.END, headline)   # Add new headlines to Listbox
+
 
 
 # Designing the GUI
@@ -76,5 +80,9 @@ pages_entry.pack()
 # Adding a button to start scraping
 scrape_button = tk.Button(root, text="Start Scraping", command=start_scraping)
 scrape_button.pack()
+
+# Adding a listbox to display the scraped headlines
+headlines_list = tk.Listbox(root, width=100, height=15)
+headlines_list.pack()
 
 root.mainloop() # Start the GUI event loop
